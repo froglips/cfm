@@ -1,0 +1,16 @@
+function rmt_cmd_put {
+  local Cmd_sftp='/usr/bin/sftp'
+
+  echo ${Cmd_sftp} -i ${LOCAL_PRIVATE_KEY} ${Rserver}@${RServer} ${RPath}
+}
+
+function rmt_cmd_ls {
+  local RUser=${1}
+  local RServer=${2}
+  local RPath=${3}
+  local Cmd_ssh='/usr/bin/ssh'
+
+  local rCmd="${Cmd_ssh} ${RUser}@${RServer} find ${RPath} -maxdepth 1 -type f"
+
+  mapfile -t DownLoadArr < <( ${rCmd} )
+}
