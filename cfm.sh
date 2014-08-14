@@ -24,6 +24,8 @@ do
 echo "Check: ${i}"
   if [[ ${i} =~ ${TARGET_FILE_REGEX} ]]
   then
-    echo "${i}: ${BASH_REMATCH[@]}"    
+    echo "Match: ${i} to ${BASH_REMATCH[@]}"    
+    rmt_cmt_get ${TARGET_USER} ${TARGET_SERVER} ${i}
+    rmt_cmt_put ${DEST_USER} ${DEST_SERVER} ${i}
   fi
 done
