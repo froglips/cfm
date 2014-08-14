@@ -7,6 +7,15 @@
 #* ***************
 
 #* ***************
+#* Source private config file
+#* ***************
+if [[ -f ./cfm_private.conf ]]
+then
+  . ./cfm_private.conf
+fi
+#* ***************
+
+#* ***************
 #* Source functions file
 #* ***************
 . ./cfm.lib
